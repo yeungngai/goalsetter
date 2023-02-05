@@ -13,11 +13,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
 // Set API Route "/api/goals" From "./routes/goalRoute"
 app.use('/api/goals', require('./routes/goalRoute'))
+app.use('/api/users', require('./routes/userRoute'))
 
-// Use error handler
+// Error Handler Middleware
 app.use(errorHandler)
 
 
