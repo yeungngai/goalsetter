@@ -14,25 +14,7 @@ const Dashboard = () => {
     (state) => state.goals
   );
 
-
-  // useEffect(() => {
-  //   if (isError) {
-  //     console.log(message);
-  //   }
-
-  //   if (!user) {
-  //     navigate("/login");
-  //   }
-
-  //   dispatch(getGoals());
-
-  //   // Unable to logout for unknown reason
-  //   return () => {
-  //     dispatch(reset())
-  //   }
-
-  // }, [user, navigate, isError, message, dispatch]);
-
+  
   useEffect(() => {
     if (isError) {
       console.log(message);
@@ -40,15 +22,15 @@ const Dashboard = () => {
 
     if (!user) {
       navigate("/login");
+    } else {
+      dispatch(getGoals());
     }
 
-    dispatch(getGoals());
   }, [user, navigate, isError, message, dispatch]);
 
   useEffect(() => {
     return () => dispatch(reset());
   }, []);
-
 
 
   if (isLoading) {
